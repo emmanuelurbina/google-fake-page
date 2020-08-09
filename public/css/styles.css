@@ -77,9 +77,10 @@ button {
 }
 
 .active_show {
+    grid-template-columns: repeat(2, auto);
     background-color: white;
     z-index: 100;
-    display: block;
+    display: grid;
     position: absolute;
     top: 4em;
     right: 0;
@@ -93,23 +94,22 @@ button {
 }
 
 .sub_item {
-    width: 65px;
-    text-decoration: none;
     padding: 1em;
 }
 
 .sub_item a {
     text-decoration: none;
     color: #000;
+    padding-top: 2em;
 }
 
-.sub_item i {
-    font-size: 38px;
+.sub_link i {
+    font-size: 32px;
     color: dodgerblue;
 }
 
-.sub_item:hover {
-    background-color: linen;
+.advance i {
+    color: tomato;
 }
 
 
