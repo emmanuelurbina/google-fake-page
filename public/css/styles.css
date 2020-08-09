@@ -1,3 +1,10 @@
+/*
+    Design by Emmanuel Lucio Urbina
+    template google.com
+    CS50web Project 0
+    - 2020
+*/
+
 * {
     margin: 0;
     padding: 0;
@@ -12,11 +19,14 @@ a {
     text-decoration: none;
     cursor: pointer;
 }
+
 button {
     cursor: pointer;
 }
 
+
 /*google nav*/
+
 .google_nav {
     display: grid;
     grid-template-columns: auto;
@@ -26,36 +36,89 @@ button {
     font-size: 13px;
 }
 
-
 .navigation {
     justify-self: right;
 }
+
 .items_nav {
     list-style: none;
 }
+
 .item {
     display: inline;
-    margin-right: 15px;
+    margin-right: 10px;
 }
+
 .item_link {
     color: #000;
 }
+
+.item_icon {
+    margin-right: 15px;
+}
+
 .item_link:hover {
     text-decoration: underline;
     color: #595959;
 }
-.item_icon{ 
-    color: #000;
+
+.item_icon {
+    color: gray;
     font-size: 18px;
 }
-.item_icon:hover{ 
-    color: gray;
+
+.item_icon:hover {
+    color: #000;
 }
+
+.sub {
+    display: none;
+    list-style: none;
+}
+
+.active_show {
+    background-color: white;
+    z-index: 100;
+    display: block;
+    position: absolute;
+    top: 4em;
+    right: 0;
+    margin: 0 3em;
+    padding: 1em;
+    width: 250px;
+    height: 300px;
+    border: solid 1px #dfe1e5;
+    border-radius: 15px 0 0 15px;
+    box-shadow: 1px 1px 18px -1px rgba(0, 0, 0, 0.41);
+}
+
+.sub_item {
+    width: 65px;
+    text-decoration: none;
+    padding: 1em;
+}
+
+.sub_item a {
+    text-decoration: none;
+    color: #000;
+}
+
+.sub_item i {
+    font-size: 38px;
+    color: dodgerblue;
+}
+
+.sub_item:hover {
+    background-color: linen;
+}
+
+
 /*button*/
+
 .btn {
     padding: .6em 1em;
     border: none;
-    background-color: lightgray ;
+    background-color: lightgray;
     font-weight: bolder;
 }
 
@@ -64,10 +127,139 @@ button {
     color: #fff;
     background-color: #4285f4;
 }
-.login:hover{
-    box-shadow: 0 1px 0 rgba(0,0,0,.15);
+
+.login:hover {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .15);
 }
+
 .login:active {
-    box-shadow:inset 0 2px 0 rgba(0,0,0,.15);
-    background:#3c78dc;
+    box-shadow: inset 0 2px 0 rgba(0, 0, 0, .15);
+    background: #3c78dc;
+}
+
+
+/*search main*/
+
+.container-image {
+    margin: 1em;
+    display: grid;
+    justify-content: center;
+}
+
+.container_search {
+    margin: 1em;
+    display: grid;
+}
+
+.search_main {
+    margin-top: 110px;
+}
+
+.image_main img {
+    width: 272px;
+    height: 92px;
+}
+
+.search_input {
+    justify-self: center;
+    width: 582px;
+}
+
+.content_input {
+    position: relative;
+    border: 1px solid #dfe1e5;
+    padding: .5em;
+    border-radius: 24px;
+}
+
+.control_search {
+    outline: none;
+    border: none;
+    padding: .5em;
+    padding-left: 3em;
+    width: 100%;
+}
+
+.content_input i {
+    top: 15px;
+    left: 15px;
+    position: absolute;
+    color: gray;
+    font-weight: auto;
+}
+
+.selected {
+    box-shadow: 1px 1px 18px -1px rgba(0, 0, 0, 0.41);
+}
+
+.buttons_content {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: 1em;
+    margin-top: 2em;
+}
+
+.controls {
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #f2f2f2;
+    color: #5F6368;
+    border-radius: 4px;
+}
+
+.controls:hover {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: #f8f8f8;
+    border: 1px solid #c6c6c6;
+    color: #222;
+}
+
+.controls:active {
+    border: solid 1px #3c78dc;
+}
+
+
+/*footer*/
+
+footer {
+    position: absolute;
+    bottom: 0;
+    padding: 1em;
+    background-color: #F2F2F2;
+    border-top: 1px solid #e4e4e4;
+    font-size: 14px;
+    width: 100%;
+    color: #5F6368;
+}
+
+.footer_items {
+    margin-left: 2em;
+    list-style: none;
+}
+
+.element {
+    display: inline;
+    margin-right: 1em;
+}
+
+.element a {
+    color: #5F6368;
+}
+
+.element a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+    .item_icon {
+        margin-left: 80px;
+    }
+    .active {
+        border-bottom: solid 2px dodgerblue;
+    }
+    .search_input {
+        width: 100%;
+    }
 }

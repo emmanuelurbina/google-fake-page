@@ -1,22 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/13aa8cdc08.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./public/css/styles.css">
 </head>
+
 <body>
     <nav class="google_nav">
         <div class="navigation">
             <ul class="items_nav">
-                <li class="item"><a href="https://gmail.com" class="item_link">Gmail</a></li>
+                <li class="item active"><a href="https://gmail.com" class="item_link">Gmail</a></li>
                 <li class="item"><a href="#" class="item_link">Images</a></li>
-                <li class="item"><a href="#" class="item_icon">
-                    <i class="fas fa-th"></i>
-                </a></li>
+
+                <li class="item ">
+                    <a href="#" class="item_icon" onblur="submenu()" onclick="submenu()" id="sub_menu">
+                        <i class="fas fa-th"></i>
+                    </a>
+                    <ul class="sub">
+                        <li class="sub_item">
+                            <a href="#" class="sub_link">
+                                <i class="fab fa-google"></i> search
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="item">
                     <a href="#" class="btn login">
                         Sign in
@@ -24,7 +36,95 @@
                 </li>
             </ul>
         </div>
-        
     </nav>
+
+    <section class="container-image">
+        <article class="search_main">
+            <div class="image_main">
+                <img src="./public/images/google.png" alt="googled">
+            </div>
+        </article>
+    </section>
+    <section class="container_search">
+        <div class="search_input">
+            <form action="https://google.com/search" id="frm_gg" method="GET">
+
+                <section class="content_input">
+                    <i class="fas fa-search"></i>
+                    <input type="text" onfocus="fun()" onblur="fun()" class="control_search" id="q" name="q" autocomplete="off">
+                </section>
+                <section class="buttons_content">
+                    <div><button id="search_button" type="button" class="btn controls">Google Search</button></div>
+                    <div><button id="lucky_button" type="button" class="btn controls">I'm Felling Lucky</button></div>
+                </section>
+
+            </form>
+        </div>
+    </section>
+    <footer class="footer_gg">
+        <div class="country_client">
+            <ul class="footer_items">
+                <li class="element"><span id="current"></span></li>
+                <li class="element"><a href="#">Advance Search</a></li>
+                <li class="element">
+                    Design by: <a href="https://github.com/emmanuelurbina">Emmanuel</a>
+                </li>
+            </ul>
+
+        </div>
+    </footer>
+    <script>
+        async function get_country() {
+            /* get user country */
+            const api = "http://ip-api.com/json"
+            const query = await fetch(api)
+            const result = query.json()
+            return result
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            let search = document.getElementById("search_button")
+            let lucky = document.getElementById("lucky_button")
+            let form = document.getElementById("frm_gg")
+            let current = document.getElementById("current")
+            get_country().then(res => {
+                current.innerHTML = res.country
+            })
+
+
+            search.addEventListener("click", () => {
+                let input = document.getElementById("q").value
+                if (input.length != 0) {
+                    form.submit()
+                }
+            })
+            lucky.addEventListener("click", () => {
+                let input = document.getElementById("q").value
+                let url = `https://google.com/search?q=${input}&btnI`
+                window.location = url
+            })
+        })
+
+        function submenu() {
+            let content = document.querySelector(".sub")
+            let original = "sub"
+            if (content.className == original) {
+                content.className += " active_show"
+            } else {
+                content.className = original
+            }
+        }
+
+        function fun() {
+            let content = document.querySelector(".content_input")
+            let original = "content_input"
+            if (content.className == original) {
+                content.className += " selected"
+            } else {
+                content.className = original
+            }
+
+        }
+    </script>
 </body>
+
 </html>
