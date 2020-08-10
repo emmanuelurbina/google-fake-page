@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/13aa8cdc08.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./public/css/styles.css">
@@ -74,7 +75,7 @@
                 <li class="element"><span id="current"></span></li>
 
                 <li class="element">
-                    Make by: <a href="https://github.com/emmanuelurbina">@Emmanuel Lucio Urbina</a>
+                    Made by: <a href="https://github.com/emmanuelurbina">@Emmanuel Lucio Urbina</a>
                 </li>
             </ul>
 
@@ -110,6 +111,7 @@
             })
             lucky.addEventListener("click", () => {
                 let input = document.getElementById("q").value
+
                 let url = `https://google.com/search?q=${input}&btnI`
                 window.location = url
             })
