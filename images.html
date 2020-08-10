@@ -14,8 +14,8 @@
     <nav class="google_nav">
         <div class="navigation">
             <ul class="items_nav">
-                <li class="item active"><a href="https://gmail.com" class="item_link">Gmail</a></li>
-                <li class="item"><a href="./images.html" class="item_link">Images</a></li>
+                <li class="item"><a href="https://gmail.com" class="item_link">Gmail</a></li>
+                <li class="item active"><a href="#" class="item_link">Images</a></li>
 
                 <li class="item ">
                     <a href="#" class="item_icon" onclick="submenu()" id="sub_menu">
@@ -23,7 +23,7 @@
                     </a>
                     <div class="sub">
                         <div class="sub_item">
-                            <a href="#" class="sub_link">
+                            <a href="./index.html" class="sub_link">
                                 <i class="fab fa-google"></i>
                                 <p class="texto">search</p>
                             </a>
@@ -58,12 +58,17 @@
 
                 <section class="content_input">
                     <div class="icon-search-left"><i class="fas fa-search"></i></div>
+
+                    <input type="hidden" name="tbm" value="isch">
                     <input type="text" onfocus="fun()" onblur="fun()" class="control_search" id="q" name="q" autocomplete="off">
+                    <div class="icon-camera">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="icon-search-right" id="search-icon">
+                        <i class="fas fa-search"></i></div>
+
                 </section>
-                <section class="buttons_content">
-                    <div><button id="search_button" type="button" class="btn controls">Google Search</button></div>
-                    <div><button id="lucky_button" type="button" class="btn controls">I'm Felling Lucky</button></div>
-                </section>
+
 
             </form>
         </div>
@@ -99,9 +104,15 @@
             let search = document.getElementById("search_button")
             let lucky = document.getElementById("lucky_button")
             let form = document.getElementById("frm_gg")
-            init()
+            let search_icon = document.getElementById("search-icon")
 
-
+            init() // load country client
+            search_icon.addEventListener("click", () => {
+                let input = document.getElementById("q").value
+                if (input.length != 0) {
+                    form.submit()
+                }
+            })
             search.addEventListener("click", () => {
                 let input = document.getElementById("q").value
                 if (input.length != 0) {

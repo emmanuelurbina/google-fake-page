@@ -177,12 +177,31 @@ button {
     border: none;
     padding: .5em;
     padding-left: 3em;
-    width: 100%;
+    width: 70%;
 }
 
-.content_input i {
+.content_input .icon-search-left {
     top: 15px;
     left: 15px;
+    position: absolute;
+    color: gray;
+    font-weight: auto;
+}
+
+.content_input .icon-search-right {
+    cursor: pointer;
+    top: 15px;
+    right: 15px;
+    position: absolute;
+    color: dodgerblue;
+    font-weight: auto;
+    font-size: 18px;
+}
+
+.content_input .icon-camera {
+    cursor: pointer;
+    top: 15px;
+    right: 55px;
     position: absolute;
     color: gray;
     font-weight: auto;
