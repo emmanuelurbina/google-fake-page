@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance Search</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/13aa8cdc08.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="./public/css/advanced_search.css">
+</head>
+
+<body>
+    <nav class="advance_search">
+        <div class="banner">
+            <a href="./index.html">
+                <img src="./public/images/google.png" width='92px' height='33px' alt="">
+            </a>
+
+        </div>
+        <div class="menu">
+            <i class="fas fa-th"></i>
+        </div>
+    </nav>
+
+    <header class="header">
+        <p>Advanced Search</p>
+    </header>
+    <main class="form_search_advanced">
+        <form action="https://google.com/search" class="form" method="GET">
+            <article class="form-elements-header">
+                <div class="element e-label">
+                    <label>
+                        Find pages with...
+                    </label>
+                </div>
+                <div class="element e-input">
+                    &nbsp;
+                </div>
+                <div class="element e-label e-hidden">
+                    <label>
+                        To do this in the search box.
+                    </label>
+                </div>
+            </article>
+
+            <article class="form-elements">
+                <div class="element e-label">
+                    <label>
+                        all these words:
+                    </label>
+                </div>
+                <div class="element e-input">
+                    <input type="text" class="e-control" name="as_q" autofocus>
+                </div>
+                <div class="element e-label e-hidden">
+                    <label>
+                        Type the important words: <code>tri-colour rat terrier</code>
+                    </label>
+                </div>
+            </article>
+
+            <article class="form-elements">
+                <div class="element e-label">
+                    <label>
+                        this exact word or phrase:
+                    </label>
+                </div>
+                <div class="element e-input">
+                    <input type="text" class="e-control" name="as_epq">
+                </div>
+                <div class="element e-label e-hidden">
+                    <label>
+                        Put exact words in quotes: <code>"rat terrier"</code>
+                    </label>
+                </div>
+            </article>
+
+            <article class="form-elements">
+                <div class="element e-label">
+                    <label>
+                        any of these words:
+                    </label>
+                </div>
+                <div class="element e-input">
+                    <input type="text" class="e-control" name="as_oq">
+                </div>
+                <div class="element e-label e-hidden">
+                    <label>
+                        Type <code>OR</code> between all the words you want: <code>miniature OR standard</code>
+                    </label>
+                </div>
+            </article>
+
+            <article class="form-elements">
+                <div class="element e-label">
+                    <label>
+                        none of these words:
+                    </label>
+                </div>
+                <div class="element e-input">
+                    <input type="text" class="e-control" name="as_eq">
+                </div>
+                <div class="element e-label e-hidden">
+                    <label>
+                        Put a minus sign just before words that you don't want: <code>-rodent, -"Jack Russell"</code>
+                    </label>
+                </div>
+            </article>
+            <article class="form-elements">
+                <div class="element e-label">
+                    &nbsp;
+                </div>
+                <div class="element e-button">
+                    <button type="submit" class="submit-search">
+                        Advanced search
+                    </button>
+                </div>
+
+            </article>
+        </form>
+    </main>
+    <footer class="footer_gg">
+        <div class="country_client">
+            <ul class="footer_items">
+                <li class="element"><span id="current"></span></li>
+
+                <li class="element">
+                    Made by: <a href="https://github.com/emmanuelurbina">@Emmanuel Lucio Urbina</a>
+                </li>
+            </ul>
+
+        </div>
+    </footer>
+    <script>
+        async function get_country() {
+            /* get user country */
+            const api = "http://ip-api.com/json"
+            const query = await fetch(api)
+            const result = query.json()
+            return result
+        }
+        async function init() {
+            const country = await get_country()
+            let current = document.getElementById("current")
+
+            current.innerHTML = country.country
+
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            init()
+        })
+    </script>
+</body>
+
+</html>
